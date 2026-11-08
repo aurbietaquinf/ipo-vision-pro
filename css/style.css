@@ -3,10 +3,6 @@
    gris claro #f2f4f8, gris texto #4a5068, blanco #ffffff */
 
 /* 1. BASE: color y tipografía */
-* {
-  box-sizing: border-box;   /* el width incluye relleno y borde */
-}
-
 html {
   scroll-padding-top: 4rem; /* el menú pegado no tapa los títulos */
 }
@@ -209,6 +205,7 @@ tbody th {
 
 .tarjetas li {
   flex: 1 1 15rem;          /* crece, encoge y parte de 15rem */
+  box-sizing: border-box;   /* la base de 15rem incluye relleno y borde */
   margin: 0;                /* la separación la pone gap */
   padding: 1.2rem;
   background-color: #f2f4f8;
@@ -232,7 +229,6 @@ tbody th {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  align-items: flex-start;  /* cada foto con su altura, sin estirarse */
 }
 
 .galeria figure {
