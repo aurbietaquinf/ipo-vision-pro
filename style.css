@@ -1,0 +1,316 @@
+/* Apple Vision Pro (M5)
+   Paleta: azul noche #1b1f3b, azul #2f6fdb, morado #6a3fc1,
+   gris claro #f2f4f8, gris texto #4a5068, blanco #ffffff */
+
+/* 1. BASE: color y tipografía */
+* {
+  box-sizing: border-box;   /* el width incluye relleno y borde */
+}
+
+html {
+  scroll-padding-top: 4rem; /* el menú pegado no tapa los títulos */
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #1b1f3b;
+  background-color: #f2f4f8;
+}
+
+/* 2. CABECERA: franja oscura centrada */
+header {
+  background-color: #1b1f3b;
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+h1 {
+  font-size: 2.75rem;
+  margin: 0 0 0.5rem;
+}
+
+header p {
+  max-width: 36rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #c9cdf0;
+}
+
+/* 3. ENCABEZADOS */
+h2 {
+  font-size: 1.9rem;
+  color: #1b1f3b;
+  margin-top: 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 4px solid #2f6fdb;
+  display: inline-block;    /* el subrayado se ajusta al texto */
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #6a3fc1;
+  margin: 0 0 0.3rem;
+}
+
+/* 4. MENÚ: pegado arriba al hacer scroll (práctica 4) y en fila con Flexbox (práctica 5) */
+nav {
+  position: sticky;
+  top: 0;                   /* sin top, sticky no se pega */
+  z-index: 10;              /* por encima del contenido */
+  background-color: #ffffff;
+  border-bottom: 3px solid #1b1f3b;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.6rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  color: #1b1f3b;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #1b1f3b;
+  border-radius: 999px;     /* forma de píldora */
+}
+
+nav a:hover {
+  background-color: #2f6fdb;
+  color: #ffffff;
+}
+
+/* 5. MODELO DE CAJA: main y secciones */
+main {
+  max-width: 50rem;
+  margin: 2rem auto;        /* auto a los lados = centrado */
+  padding: 0 1rem;
+}
+
+section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(27, 31, 59, 0.12);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 6. ENLACES Y ÉNFASIS */
+a {
+  color: #2f6fdb;
+}
+
+a:hover {
+  color: #6a3fc1;
+}
+
+a:focus-visible {
+  outline: 3px solid #6a3fc1;
+  outline-offset: 3px;
+}
+
+em {
+  color: #6a3fc1;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* 7. SALTAR AL CONTENIDO: escondido arriba hasta que recibe el foco */
+.saltar {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  z-index: 20;
+}
+
+.saltar:focus {
+  top: 1rem;
+}
+
+/* 8. IMÁGENES */
+img {
+  display: block;
+  max-width: 100%;          /* nunca se salen de su caja */
+  height: auto;             /* no se deforman */
+  border-radius: 12px;
+}
+
+figure {
+  margin: 0 0 1.5rem;
+}
+
+/* La foto principal, algo más pequeña y centrada */
+#dispositivo img {
+  width: 70%;
+  margin: 0 auto;           /* auto a los lados = centrada */
+}
+
+#dispositivo figcaption {
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: #4a5068;
+  margin-top: 0.3rem;
+}
+
+/* 9. TABLAS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+caption {
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 0.5rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid #d5d9e6;
+}
+
+thead th {
+  background-color: #1b1f3b;
+  color: #ffffff;
+}
+
+tbody th {
+  color: #2f6fdb;
+}
+
+/* 10. TARJETAS: en fila con Flexbox (práctica 5) */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;          /* si no caben, bajan a la línea siguiente */
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.tarjetas li {
+  flex: 1 1 15rem;          /* crece, encoge y parte de 15rem */
+  margin: 0;                /* la separación la pone gap */
+  padding: 1.2rem;
+  background-color: #f2f4f8;
+  border-left: 5px solid #6a3fc1;
+  border-radius: 12px;
+}
+
+.tarjetas p {
+  margin: 0;
+}
+
+.aviso {
+  padding: 1rem;
+  background-color: #fff4d6;
+  border-left: 5px solid #e0a100;
+  border-radius: 8px;
+}
+
+/* 11. GALERÍA DE FOTOS con Flexbox */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;  /* cada foto con su altura, sin estirarse */
+}
+
+.galeria figure {
+  flex: 1 1 14rem;
+  margin: 0;
+}
+
+.galeria img {
+  width: 100%;              /* la foto ocupa el ancho de su hueco */
+}
+
+/* 12. LÍNEA DEL TIEMPO */
+.linea-tiempo {
+  list-style: none;
+  padding-left: 1.5rem;
+  border-left: 4px solid #2f6fdb;   /* la línea vertical */
+  margin: 1.5rem 0;
+}
+
+.linea-tiempo li {
+  position: relative;       /* referencia de la etiqueta (práctica 4) */
+  background-color: #f2f4f8;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.linea-tiempo p {
+  margin: 0;
+}
+
+.fecha {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2f6fdb;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.3rem;
+}
+
+.linea-tiempo .actual {
+  background-color: #ece6fa;
+  border: 2px solid #6a3fc1;
+}
+
+/* Etiqueta en la esquina, como el «¡Adóptame!» de la práctica 4 */
+.etiqueta {
+  position: absolute;
+  top: -0.8rem;
+  right: 1rem;
+  padding: 0.1rem 0.8rem;
+  background-color: #6a3fc1;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 999px;
+}
+
+/* 13. PIE: franja oscura */
+footer {
+  background-color: #1b1f3b;
+  color: #c9cdf0;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+/* 14. MÓVIL: menos relleno en pantallas estrechas */
+@media (max-width: 40rem) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 1.2rem;
+  }
+}
